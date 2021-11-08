@@ -42,6 +42,7 @@ namespace ContactData
         {
             Button Add = sender as Button;
 
+            //Adding a new item to the server
             using (var context = new FirstDBEntities())
             {
                 var firsname = new Contact { FirstName = textBox1.Text,
@@ -50,7 +51,11 @@ namespace ContactData
                 context.Contacts.Add(firsname);
                 context.SaveChanges();
             }
-
+            //clears the boxes
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            MessageBox.Show("Användare inlaggd");
 
         }
 
