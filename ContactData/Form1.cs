@@ -21,13 +21,24 @@ namespace ContactData
             {
                 listBox1.Items.Add(item);
             }
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Will be abel to click the listbox items
+            ListBox Contact = sender as ListBox;
+            Contact selectedPerson = Contact.SelectedItem as Contact;
+
+            PhoneNumber.Text = $"PhoneNumber: {selectedPerson.PhoneNumber}";
+
         }
     }
     public partial class Contact
     {
         public override string ToString()
         {
-            return $"{FirstName} {LastName} {PhoneNumber}";
+            return $"{FirstName} {LastName}";
         }
     }
 }
